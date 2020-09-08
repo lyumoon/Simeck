@@ -43,7 +43,8 @@ void simeck_48_96(
 
         constant &= 0xFFFFFC;
         constant |= sequence & 1;
-        sequence >>= 1;
+        //sequence >>= 1;
+        sequence = (sequence >> 1) | (sequence << (32-1));  
         ROUND48(
                 constant,
                 keys[1],
